@@ -79,7 +79,7 @@ function verificaLetra(letra){
     let verificaClass = letra.className;
     
 
-    if(verificaClass != "botoes apertada"){
+    if(verificaClass != "botoes apertada" ){
         let verificadorIndex = palavraSecreta.indexOf(letra.innerHTML)
         if(verificadorIndex < 0){
                 tentativas--;
@@ -103,7 +103,7 @@ function verificaLetra(letra){
     }
     if(tentativas == 0){
        verificafimDeJogo(palavraSecreta,"você Pedeu a Palavra secreta era: ");
-       console.log("chamou")
+       
     }
 
     
@@ -118,12 +118,12 @@ function fehcaJanela(){
 function resetaJogo(botao){
     tentativas = 6;
     contAcertos = 0;
-    listaDinamica = []
+    listaDinamica = [];
     botao.forEach((item)=>{
         item.classList.remove("apertada");
     });
-    console.log(tentativas)
-   mudaImagenTela(tentativas)
+   mudaImagenTela(tentativas);
+   sorteiaPalavra(palavras);
 
 }
 
@@ -138,16 +138,10 @@ function verificafimDeJogo(palavraSecreta,mensagem){
 
 }
 
-function cliqueLetra(){
+function eventosEscutaBtn(){
     const teclas = document.querySelectorAll(".botoes");
     const btnFexarJanela = document.getElementById("fecha");
     const btnResetaJogo = document.getElementById("novo-jogo");
-
-
-   btnResetaJogo.addEventListener("click",(e)=>{
-        resetaJogo(teclas);
-        sorteiaPalavra(palavras);
-   });
 
     btnFexarJanela.addEventListener('click',(e)=>{
         fehcaJanela();
@@ -157,9 +151,15 @@ function cliqueLetra(){
         item.addEventListener("click",(e)=>{
             e.preventDefault();
             verificaLetra(item)
-
+            
         });
     })
+    
+    btnResetaJogo.addEventListener("click",(e)=>{
+         e.preventDefault();
+         resetaJogo(teclas);
+         btnResetaJogo.classList.remove("apertada")
+    });
 }
 
 function mudaTecla(tecla){
@@ -169,8 +169,8 @@ function mudaTecla(tecla){
 
 function inicia(){
     sorteiaPalavra(palavras);
+    eventosEscutaBtn();
     mostrarNaTela();
-    cliqueLetra();
 
 }
 

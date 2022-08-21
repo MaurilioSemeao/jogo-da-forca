@@ -61,7 +61,7 @@ body{
     padding: 5px;
 }
 
-.teclas button{
+.botoes{
     flex-basis: 45px;
     height: 40px;
     flex-shrink:1;
@@ -100,9 +100,9 @@ body{
     display: flex;
     flex-direction: column;
     background-color: aliceblue;
-    width: 90vw;
-    height: 20vh;
-    top: 40%;
+    width: 340px;
+    height: 26vh;
+    top: 56%;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
@@ -114,7 +114,7 @@ body{
 }
 
 .mensagem-gameover hr{
-    width: 80vw;
+    width: 100%;
     border: 1px solid grey;
 }
 
@@ -126,7 +126,7 @@ body{
 
 .mensagem-gameover button{
     position: absolute;
-    left: 90%;
+    left: 87%;
     bottom: 75%;
     width: 30px;
     height: 30px;
@@ -159,6 +159,12 @@ body{
 
 
 @media (min-width: 408px){
+    .mensagem-gameover{
+        width: 390px;
+        height: 20vh;
+        top: 40%;
+    }
+
     .teclas{
         width: 400px;
     }
@@ -187,5 +193,18 @@ body{
         margin: 3px;
         flex-grow: 0;
     }
+
+    .mensagem-gameover{
+        width: 760px;
+        height: 23vh;
+        top: 42%;
+       
+    }
+
+    .mensagem-gameover button{
+        left: 93.5%;
+        bottom: 77%;
+    }    
+
 }
 
