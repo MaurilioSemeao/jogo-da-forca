@@ -45,10 +45,10 @@ let listaDinamica = [];
 let palavraSecreta;
 let palavraCategoria;
 let tentativas = 6;
+let contAcertos=0;
 
 function sorteiaPalavra(arr){
     let indexRandom = (Math.round(Math.random() *arr.length));
-
      palavraSecreta = arr[indexRandom].nome;
      palavraCategoria = arr[indexRandom].categoria;
 }
@@ -70,21 +70,96 @@ function mostrarNaTela(){
     }
 }
 
-function verificarTeclas(){
-    const teclas = document.querySelectorAll(".botoes");
-    teclas.forEach((item)=>{
-        item.addEventListener("click",(e)=>{
-            e.preventDefault();
-            console.log('clikei')
-            verificaLetra(item)
-        });
-    })
+function mudaImagenTela(tentativas){
+    let imagem = document.querySelector(".imagem");
+    imagem.style.backgroundImage = `url('./img/forca${tentativas}.png')`
 }
 
 function verificaLetra(letra){
-   console.log(palavraSecreta.indexOf(letra.innerHTML))
-   
-    mudaTecla(letra);
+    let verificaClass = letra.className;
+    
+
+    if(verificaClass != "botoes apertada"){
+        let verificadorIndex = palavraSecreta.indexOf(letra.innerHTML)
+        if(verificadorIndex < 0){
+                tentativas--;
+        }else{
+            for(let i=0; i<palavraSecreta.length; i++){
+                if(palavraSecreta[i] == letra.innerHTML){
+                    listaDinamica[i] = palavraSecreta[i];
+                    contAcertos++;
+                }
+            }
+        }  
+
+    }
+    if(contAcertos == palavraSecreta.length){
+        verificafimDeJogo("Parabéns", "Você adivinhou a palavra secreta:");
+    }
+    if(tentativas >=0 ){
+        mudaTecla(letra);
+        mostrarNaTela();
+        mudaImagenTela(tentativas);
+    }
+    if(tentativas == 0){
+       verificafimDeJogo(palavraSecreta,"você Pedeu a Palavra secreta era: ");
+       console.log("chamou")
+    }
+
+    
+
+}
+
+function fehcaJanela(){
+    const mensagenFinal = document.querySelector(".mensagem-gameover");
+    mensagenFinal.classList.remove("fim-de-jogo");
+}
+
+function resetaJogo(botao){
+    tentativas = 6;
+    contAcertos = 0;
+    listaDinamica = []
+    botao.forEach((item)=>{
+        item.classList.remove("apertada");
+    });
+    console.log(tentativas)
+   mudaImagenTela(tentativas)
+
+}
+
+function verificafimDeJogo(palavraSecreta,mensagem){
+    const mensagenFinal = document.querySelector(".mensagem-gameover");
+    const palavraTela = document.getElementById("palavra");
+    const mensagemTela = document.getElementById("mensagem");
+
+    mensagenFinal.classList.add("fim-de-jogo");
+    palavraTela.innerHTML = palavraSecreta;
+    mensagemTela.innerHTML = mensagem
+
+}
+
+function cliqueLetra(){
+    const teclas = document.querySelectorAll(".botoes");
+    const btnFexarJanela = document.getElementById("fecha");
+    const btnResetaJogo = document.getElementById("novo-jogo");
+
+
+   btnResetaJogo.addEventListener("click",(e)=>{
+        resetaJogo(teclas);
+        sorteiaPalavra(palavras);
+   });
+
+    btnFexarJanela.addEventListener('click',(e)=>{
+        fehcaJanela();
+    })
+
+    teclas.forEach((item)=>{
+        item.addEventListener("click",(e)=>{
+            e.preventDefault();
+            verificaLetra(item)
+
+        });
+    })
 }
 
 function mudaTecla(tecla){
@@ -92,11 +167,11 @@ function mudaTecla(tecla){
 }
 
 
-
 function inicia(){
     sorteiaPalavra(palavras);
     mostrarNaTela();
-    verificarTeclas();
+    cliqueLetra();
+
 }
 
 inicia()
