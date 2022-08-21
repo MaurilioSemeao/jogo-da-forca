@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:wght@300;600&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: roboto mono ,'san-serif';
+}
+
+body{
+    background-color: #54B0F7;
+    width: 100vw;
+    height: 90vh;
+    margin-top: 20px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+   
+}
+
+.imagem{
+    background-image: url("/img/forca06.png");
+    background-repeat: no-repeat;
+    width: 234px;
+    height: 272px;
+}
+
+.palavra-secreta{
+    font-size: 1.2em;
+    display: flex;
+}
+
+.letra{
+    width: 20px;
+    padding: 2px;
+    border: none;
+    border-bottom: 2px solid brown;
+    margin: 0.2em;
+    color: brown;
+    text-shadow: 1px 1px 3px white;
+}
+
+.teclado{
+    margin: 5px;
+}
+.teclas{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;  
+    min-width: 360px;  
+    padding: 5px;
+}
+
+.botoes{
+    flex-basis: 40px;
+    height: 40px;
+    flex-shrink:1;
+    flex-grow: 1;
+    margin: 2px;
+    border: none;
+    border-radius: 2px;
+    background-color: gray;
+    color: aliceblue;
+    font-size: 18px;
+    text-shadow: 1px 1px 1px black;
+}
+
+
+#novo-jogo{
+    flex-grow:1;
+    overflow: hidden;
+}
+
+
+.dicas{
+    background-color: violet;
+}
