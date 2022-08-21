@@ -26,15 +26,17 @@ body{
 }
 
 .imagem{
-    background-image: url("/img/forca06.png");
+    background-image: url("/img/forca.png");
     background-repeat: no-repeat;
     width: 234px;
     height: 272px;
 }
 
 .palavra-secreta{
-    font-size: 1.2em;
+    font-size: 1.4em;
     display: flex;
+    min-height: 50px;
+    align-items: flex-end;
 }
 
 .letra{
@@ -73,13 +75,11 @@ body{
     font-weight: bolder;
     text-shadow: 1px 1px 1px black;
     box-shadow: 1px 1px 2px darkblue;
-    transition: 200ms ease-in-out;
+    transition: 150ms ease-in-out;
 }
 
-.botoes:hover{
-    transition: 200ms ease-in-out;
-    transform: scale(105%);
-    font-size: 22px;
+.apertada{
+    background-color: crimson;
 }
 
 #novo-jogo{
@@ -107,6 +107,19 @@ body{
     filter: drop-shadow(10px -10px 6px black);
     opacity: 89%;
     visibility: hidden;
+}
+
+.fim-de-jogo{
+    visibility: visible;
+}
+
+.botoes:hover{
+    transition: 150ms ease-in-out;
+    transform: scale(110%);
+}
+
+.apertada:hover{
+    transform: none;   
 }
 
 
