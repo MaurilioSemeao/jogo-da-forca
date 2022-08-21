@@ -12,6 +12,8 @@ body{
     width: 100vw;
     height: 90vh;
     margin-top: 20px;
+    position: relative;
+    
 }
 
 .container{
@@ -20,7 +22,7 @@ body{
     align-items: center;
     flex-wrap: wrap;
     flex-direction: column;
-   
+    z-index: 1;
 }
 
 .imagem{
@@ -43,6 +45,7 @@ body{
     margin: 0.2em;
     color: brown;
     text-shadow: 1px 1px 3px white;
+    text-align: center;
 }
 
 .teclado{
@@ -57,26 +60,84 @@ body{
 }
 
 .botoes{
-    flex-basis: 40px;
+    flex-basis: 45px;
     height: 40px;
     flex-shrink:1;
-    flex-grow: 1;
+    flex-grow:1;
     margin: 2px;
     border: none;
-    border-radius: 2px;
+    border-radius: 3px;
     background-color: gray;
     color: aliceblue;
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: bolder;
     text-shadow: 1px 1px 1px black;
+    box-shadow: 1px 1px 2px darkblue;
+    transition: 200ms ease-in-out;
 }
 
+.botoes:hover{
+    transition: 200ms ease-in-out;
+    transform: scale(105%);
+    font-size: 22px;
+}
 
 #novo-jogo{
     flex-grow:1;
     overflow: hidden;
+    font-size: 30px;
 }
-
 
 .dicas{
-    background-color: violet;
+   text-align: center;
+   padding: 10px;
+   font-size: 23px;
+   font-weight: 400;
 }
+
+.mensagem-vitoria{
+    position: absolute;
+    background-color: aliceblue;
+    width: 350px;
+    height: 150px;
+    top: 50%;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    filter: drop-shadow(10px -10px 6px black);
+    opacity: 89%;
+    visibility: hidden;
+}
+
+
+@media (min-width: 408px){
+    .teclas{
+        width: 400px;
+    }
+    .botoes{
+        flex-basis: 45px;
+    }
+}
+
+@media (min-width: 768px) {
+
+    .palavra-secreta{
+        font-size: 2em;
+    }
+
+    .letra{
+        width: 30px;
+    }
+
+    .teclas{
+        width: 760px ;
+        justify-content: space-around;
+    }
+    .botoes{
+        flex-basis: 69px;
+        height: 60px;
+        margin: 3px;
+        flex-grow: 0;
+    }
+}
+
