@@ -26,7 +26,7 @@ body{
 }
 
 .imagem{
-    background-image: url("/img/forca.png");
+    background-image: url("/img/forca6.png");
     background-repeat: no-repeat;
     width: 234px;
     height: 272px;
@@ -61,7 +61,7 @@ body{
     padding: 5px;
 }
 
-.botoes{
+.teclas button{
     flex-basis: 45px;
     height: 40px;
     flex-shrink:1;
@@ -78,7 +78,7 @@ body{
     transition: 150ms ease-in-out;
 }
 
-.apertada{
+.teclas .apertada{
     background-color: crimson;
 }
 
@@ -95,30 +95,65 @@ body{
    font-weight: 400;
 }
 
-.mensagem-vitoria{
+.mensagem-gameover{
     position: absolute;
+    display: flex;
+    flex-direction: column;
     background-color: aliceblue;
-    width: 350px;
-    height: 150px;
-    top: 50%;
+    width: 90vw;
+    height: 20vh;
+    top: 40%;
+    justify-content: center;
+    align-items: center;
     border-radius: 10px;
-    padding: 10px;
+    padding: 20px;
     border: none;
     filter: drop-shadow(10px -10px 6px black);
     opacity: 89%;
     visibility: hidden;
 }
 
+.mensagem-gameover hr{
+    width: 80vw;
+    border: 1px solid grey;
+}
+
+.mensagem-gameover span{
+    font-size: 20px;
+    margin: 10px;
+    font-weight: 500;
+}
+
+.mensagem-gameover button{
+    position: absolute;
+    left: 90%;
+    bottom: 75%;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: crimson;
+    font-size: 20px;
+    color: aliceblue;
+    box-shadow: 1px 1px 2px grey;
+    border-radius: 3px;
+}
+
+.mensagem-gameover button:hover{
+    background-color: rgb(185, 14, 48);
+    transition: 100ms ease-in;
+    transform: scale(110%);
+}
+
 .fim-de-jogo{
     visibility: visible;
 }
 
-.botoes:hover{
+.teclas button:hover{
     transition: 150ms ease-in-out;
     transform: scale(110%);
 }
 
-.apertada:hover{
+.teclas .apertada:hover{
     transform: none;   
 }
 
