@@ -9,7 +9,7 @@ const palavras = [
     {nome: "MEXICO", categoria:"LUGAR"},
     {nome: "TAJI MAHAL", categoria:"LUGAR"},
     {nome: "CANETA", categoria:"OBJETO"},
-    {nome: "BIRRACHA", categoria:"OBJETO"},
+    {nome: "BORRACHA", categoria:"OBJETO"},
     {nome: "CADERNO", categoria:"OBJETO"},
     {nome: "PRATO", categoria:"OBJETO"},
     {nome: "CONTROLE", categoria:"OBJETO"},
@@ -103,7 +103,7 @@ function verificaLetra(letra){
     }
     if(tentativas == 0){
        verificafimDeJogo(palavraSecreta,"você Pedeu a Palavra secreta era: ");
-       
+
     }
 
     
